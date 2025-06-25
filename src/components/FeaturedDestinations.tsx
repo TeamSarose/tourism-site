@@ -21,14 +21,14 @@ const destinations = [
 ];
 
 const FeaturedDestinations = () => {
-  // Create refs array at the top level
-  const refs = Array.from({ length: destinations.length }, () => useRef<HTMLDivElement>(null));
+  const refs = useRef<(HTMLDivElement | null)[]>([]);
   const [inView, setInView] = useState(Array(destinations.length).fill(false));
 
   useEffect(() => {
-    refs.forEach((ref, i) => {
-      if (!ref.current) return;
-      const observer = new window.IntersectionObserver(
+    const observers: IntersectionObserver[] = [];
+    refs.current.forEach((el, i) => {
+      if (!el) return;
+      const observer = new IntersectionObserver(
         ([entry]) => {
           if (entry.isIntersecting) {
             setInView((prev) => {
@@ -41,10 +41,12 @@ const FeaturedDestinations = () => {
         },
         { threshold: 0.2 }
       );
-      observer.observe(ref.current);
-      return () => observer.disconnect();
+      observer.observe(el);
+      observers.push(observer);
     });
-    // eslint-disable-next-line
+    return () => {
+      observers.forEach(obs => obs.disconnect());
+    };
   }, []);
 
   return (
@@ -55,7 +57,7 @@ const FeaturedDestinations = () => {
           {destinations.map((d, i) => (
             <div
               key={d.title}
-              ref={refs[i]}
+              ref={(el) => { refs.current[i] = el; }}
               className={`bg-gray-100 rounded-lg shadow hover:shadow-lg transition overflow-hidden flex flex-col
                 ${inView[i] ? "opacity-100 scale-100 translate-y-0 animate-fd-zoom-in" : "opacity-0 scale-95 translate-y-8"}`}
               style={{ transitionDelay: `${i * 120}ms` }}
