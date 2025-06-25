@@ -1,7 +1,7 @@
 "use client";
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, RefObject } from "react";
 
-function useInView(ref: React.RefObject<HTMLElement>) {
+function useInView(ref: RefObject<HTMLElement | null>) {
   const [inView, setInView] = useState(false);
   useEffect(() => {
     if (!ref.current) return;
@@ -17,7 +17,7 @@ function useInView(ref: React.RefObject<HTMLElement>) {
 
 const Footer = () => {
   const footerRef = useRef<HTMLElement>(null);
-  const inView = useInView(footerRef);
+  const inView = useInView(footerRef as RefObject<HTMLElement | null>);
   return (
     <footer
       ref={footerRef}
