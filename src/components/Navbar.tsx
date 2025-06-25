@@ -43,13 +43,14 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between px-4 md:px-10 py-3">
         {/* Logo */}
-        <Link href="#" className="flex items-center gap-2">
-          {/* If you have /public/logo.png, use Image, else fallback to text */}
-          <span className="block md:hidden font-extrabold text-2xl text-orange-600">Tourism</span>
-          <span className="hidden md:block">
-            <Image src="/logo.png" alt="Logo" width={40} height={40} className="rounded-full" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
-          </span>
-          <span className="hidden md:block font-extrabold text-2xl text-orange-600 ml-2">Tourism</span>
+        <Link href="/" className="flex items-center gap-3">
+          {/* Online travel-themed logo */}
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/201/201623.png"
+            alt="Travel Logo"
+            className="h-10 w-auto object-contain"
+            style={{ minWidth: 40 }}
+          />
         </Link>
         {/* Desktop Menu */}
         <ul className="hidden md:flex gap-8 font-medium text-lg">
