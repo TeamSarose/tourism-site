@@ -20,34 +20,6 @@ const destinations = [
   },
 ];
 
-function useCardsInView(count: number) {
-  const refs = Array.from({ length: count }, () => useRef<HTMLDivElement>(null));
-  const [inView, setInView] = useState(Array(count).fill(false));
-
-  useEffect(() => {
-    refs.forEach((ref, i) => {
-      if (!ref.current) return;
-      const observer = new window.IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            setInView((prev) => {
-              const updated = [...prev];
-              updated[i] = true;
-              return updated;
-            });
-            observer.disconnect();
-          }
-        },
-        { threshold: 0.2 }
-      );
-      observer.observe(ref.current);
-      return () => observer.disconnect();
-    });
-    // eslint-disable-next-line
-  }, []);
-  return refs.map((ref, i) => [ref, inView[i]] as const);
-}
-
 const FeaturedDestinations = () => {
   // Create refs array at the top level
   const refs = Array.from({ length: destinations.length }, () => useRef<HTMLDivElement>(null));
