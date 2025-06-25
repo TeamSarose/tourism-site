@@ -1,20 +1,21 @@
 "use client";
 
 import { useRef, useEffect, useState } from "react";
+import Image from "next/image";
 
 const highlights = [
   {
-    img: "https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=600&q=80",
+    img: "/images/dhow-boats.jpg",
     title: "Traditional Dhow Boats",
     desc: "Dhow boats are a symbol of Qatar's maritime heritage. Once used for pearl diving and fishing, these beautifully crafted wooden vessels now offer scenic cruises along the Doha Corniche, especially enchanting at sunset.",
   },
   {
-    img: "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=600&q=80",
+    img: "/images/falconry.jpg",
     title: "Falconry",
     desc: "Falconry is deeply rooted in Qatari culture and is recognized by UNESCO as Intangible Cultural Heritage. Falcons are highly prized, and you can witness this ancient tradition at the Falcon Souq or during local festivals.",
   },
   {
-    img: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=80",
+    img: "/images/qatari-cuisine.jpg",
     title: "Qatari Cuisine",
     desc: "Qatari cuisine, such as Machboos (spiced rice with meat) and Karak tea, reflects the country's rich history and hospitality. Enjoy these flavors at traditional restaurants and local markets throughout Doha.",
   },
@@ -57,10 +58,13 @@ const CulturalHighlights = () => {
                 delay-${i * 150}`}
               style={{ transitionDelay: `${i * 150}ms` }}
             >
-              <img
+              <Image
                 src={h.img}
                 alt={h.title}
+                width={600}
+                height={160}
                 className="w-full h-32 sm:h-40 object-cover rounded-lg mb-3 sm:mb-4 shadow-md"
+                style={{ objectFit: 'cover' }}
               />
               <h3 className="text-lg sm:text-xl font-semibold mb-1 sm:mb-2 text-blue-700">{h.title}</h3>
               <p className="text-gray-600 text-sm sm:text-base">{h.desc}</p>

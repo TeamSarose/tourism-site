@@ -45,9 +45,11 @@ const Navbar = () => {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3">
           {/* Online travel-themed logo */}
-          <img
-            src="https://cdn-icons-png.flaticon.com/512/201/201623.png"
+          <Image
+            src="/images/logo.png"
             alt="Travel Logo"
+            width={40}
+            height={40}
             className="h-10 w-auto object-contain"
             style={{ minWidth: 40 }}
           />

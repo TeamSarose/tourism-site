@@ -4,8 +4,7 @@ import Navbar from "@/components/Navbar";
 import FeaturesSection from "@/components/FeaturesSection";
 import { useEffect, useState } from "react";
 
-const bgImage =
-  "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1500&q=80"; // Beautiful beach sunset
+const bgImage = "/images/hero-beach-sunset.jpg"; // Beautiful beach sunset
 
 const HeroSection = () => {
   const [show, setShow] = useState(false);
