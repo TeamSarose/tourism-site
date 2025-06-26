@@ -41,7 +41,7 @@ const HeroSection = () => {
         </p>
         <a
           href="#contact"
-          className={`inline-block mt-2 px-6 py-3 sm:px-10 sm:py-4 bg-orange-500 hover:bg-orange-600 text-white text-base sm:text-lg md:text-xl font-bold rounded-full shadow-lg transition-all duration-300
+          className={`inline-block mt-2 px-6 py-3 sm:px-10 sm:py-4 bg-orange-500 hover:bg-orange-600 text-white text-base sm:text-lg md:text-xl font-bold rounded-full shadow-lg transition-all duration-300 mb-8 sm:mb-10 md:mb-16
             ${show ? "opacity-100 scale-100 animate-hero-fade-in delay-200" : "opacity-0 scale-95"}`}
         >
           Book Now

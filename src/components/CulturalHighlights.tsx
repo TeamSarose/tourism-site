@@ -48,7 +48,7 @@ const CulturalHighlights = () => {
         </p>
         <div
           ref={sectionRef}
-          className="grid gap-6 sm:gap-8 grid-cols-1 md:grid-cols-3"
+          className="flex flex-col md:grid md:grid-cols-3 gap-y-6 md:gap-8 px-4 py-8"
         >
           {highlights.map((h, i) => (
             <div
@@ -63,10 +63,10 @@ const CulturalHighlights = () => {
                 alt={h.title}
                 width={600}
                 height={160}
-                className="w-full h-32 sm:h-40 object-cover rounded-lg mb-3 sm:mb-4 shadow-md"
+                className="w-full h-auto max-h-40 object-cover rounded-lg mb-3 sm:mb-4 shadow-md"
                 style={{ objectFit: 'cover' }}
               />
-              <h3 className="text-lg sm:text-xl font-semibold mb-1 sm:mb-2 text-blue-700">{h.title}</h3>
+              <h3 className="text-base sm:text-lg md:text-xl font-semibold mb-1 sm:mb-2 text-blue-700">{h.title}</h3>
               <p className="text-gray-600 text-sm sm:text-base">{h.desc}</p>
             </div>
           ))}
