@@ -1,6 +1,5 @@
 "use client";
 import { useRef, useEffect, useState } from "react";
-import { FaMoneyBillWave, FaClock, FaMapMarkerAlt } from "react-icons/fa";
 
 // --- Packages Data ---
 const packages = [

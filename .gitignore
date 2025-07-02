@@ -62,3 +62,6 @@ next-env.d.ts
 # Next.js specific additions
 *.local
 *.zip
+
+# Images
+public/images/*
