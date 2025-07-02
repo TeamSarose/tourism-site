@@ -95,7 +95,9 @@ const ExperienceSection = () => {
         ([entry]) => {
           if (entry.isIntersecting) {
             setFeaturesInView(true);
-            featuresObserver && featuresObserver.disconnect();
+            if (featuresObserver) {
+              featuresObserver.disconnect();
+            }
           }
         },
         { threshold: 0.2 }
@@ -103,8 +105,12 @@ const ExperienceSection = () => {
       featuresObserver.observe(featuresRef.current);
     }
     return () => {
-      pkgObservers.forEach(obs => obs.disconnect());
-      featuresObserver && featuresObserver.disconnect();
+      pkgObservers.forEach(obs => {
+        obs.disconnect();
+      });
+      if (featuresObserver) {
+        featuresObserver.disconnect();
+      }
     };
   }, []);
 
@@ -120,7 +126,9 @@ const ExperienceSection = () => {
           {packages.map((pkg, i) => (
             <div
               key={pkg.title}
-              ref={el => { pkgRefs.current[i] = el; }}
+              ref={el => {
+                pkgRefs.current[i] = el;
+              }}
               className={`bg-[#f9f6f2] rounded-3xl shadow-xl border border-orange-100 p-7 flex flex-col items-center transition-transform duration-500 cursor-pointer
                 ${pkgInView[i] ? "opacity-100 translate-y-0 scale-100 animate-pkg-fade-up" : "opacity-0 translate-y-8 scale-95"}
                 hover:scale-105 hover:shadow-2xl`}
