@@ -1,4 +1,5 @@
 import HeroSection from "@/components/HeroSection";
+import ExperienceSection from "@/components/ExperienceSection";
 import FeaturedDestinations from "@/components/FeaturedDestinations";
 import CulturalHighlights from "@/components/CulturalHighlights";
 import OurLocation from "@/components/OurLocation";
@@ -10,6 +11,7 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       <HeroSection />
+      <ExperienceSection />
       <FeaturedDestinations />
       <CulturalHighlights />
       <OurLocation />

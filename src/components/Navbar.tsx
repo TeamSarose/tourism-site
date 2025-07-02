@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 
 const links = [
   { name: "Home", href: "#" },
+  { name: "Packages", href: "#experience" },
   { name: "Destinations", href: "#destinations" },
   { name: "Culture", href: "#about" },
   { name: "Location", href: "#location" },
@@ -38,13 +39,12 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-30 transition-all duration-300
-        ${scrolled ? "bg-white/90 shadow-lg backdrop-blur border-b border-gray-200" : "bg-transparent"}`}
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300
+        ${scrolled ? "bg-white shadow-md backdrop-blur border-b border-gray-200" : "bg-white/30 backdrop-blur-md"}`}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between px-4 md:px-10 py-3">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3">
-          {/* Online travel-themed logo */}
           <Image
             src="/images/logo.png"
             alt="Travel Logo"
@@ -61,8 +61,7 @@ const Navbar = () => {
               <Link
                 href={link.href}
                 onClick={e => handleNavClick(e, link.href)}
-                className={`relative transition-colors duration-300 underline-offset-8 decoration-2
-                  ${scrolled ? "text-black hover:text-blue-500 focus:text-blue-500" : "text-orange-500 hover:text-yellow-400 focus:text-yellow-400"}
+                className={`relative transition-colors duration-300 underline-offset-8 decoration-2 text-black hover:text-orange-500 focus:text-orange-500
                   hover:underline focus:underline
                   after:content-[''] after:block after:h-0.5 after:bg-current after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-200 after:origin-left after:mt-1`}
               >
@@ -77,9 +76,9 @@ const Navbar = () => {
           onClick={() => setMenuOpen((v) => !v)}
           aria-label="Toggle menu"
         >
-          <span className={`block w-6 h-0.5 bg-orange-600 mb-1.5 rounded transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""}`}></span>
-          <span className={`block w-6 h-0.5 bg-orange-600 mb-1.5 rounded transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`}></span>
-          <span className={`block w-6 h-0.5 bg-orange-600 rounded transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`}></span>
+          <span className="block w-6 h-0.5 bg-orange-600 mb-1.5 rounded transition-all duration-300 ${menuOpen ? 'rotate-45 translate-y-2' : ''}"></span>
+          <span className="block w-6 h-0.5 bg-orange-600 mb-1.5 rounded transition-all duration-300 ${menuOpen ? 'opacity-0' : ''}"></span>
+          <span className="block w-6 h-0.5 bg-orange-600 rounded transition-all duration-300 ${menuOpen ? '-rotate-45 -translate-y-2' : ''}"></span>
         </button>
       </div>
       {/* Mobile Menu */}
@@ -106,8 +105,7 @@ const Navbar = () => {
               <Link
                 href={link.href}
                 onClick={e => handleNavClick(e, link.href)}
-                className={`block py-2 px-2 rounded transition-colors duration-300 underline-offset-8 decoration-2
-                  ${scrolled ? "text-black hover:text-blue-500 focus:text-blue-500" : "text-orange-500 hover:text-yellow-400 focus:text-yellow-400"}
+                className={`block py-2 px-2 rounded transition-colors duration-300 underline-offset-8 decoration-2 text-black hover:text-orange-500 focus:text-orange-500
                   hover:underline focus:underline hover:bg-orange-50`}
               >
                 {link.name}
@@ -120,4 +118,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar; 
+export default Navbar;

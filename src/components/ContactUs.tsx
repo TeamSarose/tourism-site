@@ -6,11 +6,11 @@ function validateEmail(email: string) {
 }
 
 const ContactUs = () => {
-  const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", subject: "", message: "", package: "" });
   const [errors, setErrors] = useState<{ [k: string]: string }>({});
   const [submitted, setSubmitted] = useState(false);
 
-  function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
+  function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
     setForm({ ...form, [e.target.name]: e.target.value });
     setErrors({ ...errors, [e.target.name]: "" });
   }
@@ -25,7 +25,7 @@ const ContactUs = () => {
     setErrors(newErrors);
     if (Object.keys(newErrors).length === 0) {
       setSubmitted(true);
-      setForm({ name: "", email: "", subject: "", message: "" });
+      setForm({ name: "", email: "", subject: "", message: "", package: "" });
       setTimeout(() => setSubmitted(false), 4000);
     }
   }
@@ -70,6 +70,19 @@ const ContactUs = () => {
                 onChange={handleChange}
                 autoComplete="off"
               />
+            </div>
+            <div>
+              <select
+                name="package"
+                value={form.package}
+                onChange={handleChange}
+                className="w-full px-4 py-3 border border-orange-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all duration-200 text-base bg-white/70 text-gray-700 mb-2"
+              >
+                <option value="">Select Your Package</option>
+                <option value="Bronze">Bronze</option>
+                <option value="Silver">Silver</option>
+                <option value="Gold">Gold</option>
+              </select>
             </div>
             <div>
               <textarea

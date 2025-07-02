@@ -58,3 +58,7 @@ next-env.d.ts
 
 # Output of 'npm pack'
 *.tgz
+
+# Next.js specific additions
+*.local
+*.zip
