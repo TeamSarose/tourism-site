@@ -57,7 +57,7 @@ const HeroCarousel = () => {
         </p>
         <a
           href="#contact"
-          className="inline-block mt-2 px-6 py-3 sm:px-10 sm:py-4 bg-orange-500 hover:bg-orange-600 text-white text-base sm:text-lg md:text-xl font-bold rounded-full shadow-lg transition-all duration-300 mb-8 sm:mb-10 md:mb-16 animate-hero-fade-in delay-200"
+          className="inline-block mt-2 px-6 py-3 sm:px-10 sm:py-4 bg-[var(--golden-orange)] hover:bg-[var(--gold)] text-white text-base sm:text-lg md:text-xl font-bold rounded-full shadow-lg transition-all duration-300 mb-8 sm:mb-10 md:mb-16 animate-hero-fade-in delay-200"
         >
           Book Now
         </a>
@@ -66,16 +66,16 @@ const HeroCarousel = () => {
       <button
         onClick={prev}
         aria-label="Previous slide"
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-30 bg-white/70 hover:bg-orange-500 text-orange-600 hover:text-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg transition-all duration-200 focus:outline-none"
+        className="hidden md:flex absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-30 bg-white/70 hover:bg-[var(--golden-orange)] text-[var(--golden-orange)] hover:text-white rounded-full w-9 h-9 md:w-12 md:h-12 items-center justify-center shadow-lg transition-all duration-200 focus:outline-none"
       >
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" /></svg>
+        <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" /></svg>
       </button>
       <button
         onClick={next}
         aria-label="Next slide"
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-30 bg-white/70 hover:bg-orange-500 text-orange-600 hover:text-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg transition-all duration-200 focus:outline-none"
+        className="hidden md:flex absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-30 bg-white/70 hover:bg-[var(--golden-orange)] text-[var(--golden-orange)] hover:text-white rounded-full w-9 h-9 md:w-12 md:h-12 items-center justify-center shadow-lg transition-all duration-200 focus:outline-none"
       >
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
+        <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
       </button>
       {/* Dots */}
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-30">
@@ -84,7 +84,7 @@ const HeroCarousel = () => {
             key={idx}
             onClick={() => goTo(idx)}
             aria-label={`Go to slide ${idx + 1}`}
-            className={`w-3 h-3 rounded-full border-2 border-white transition-all duration-200 ${current === idx ? 'bg-orange-500 border-orange-500 scale-125' : 'bg-white/70 hover:bg-orange-400'}`}
+            className={`w-3 h-3 rounded-full border-2 border-white transition-all duration-200 ${current === idx ? 'bg-[var(--golden-orange)] border-[var(--golden-orange)] scale-125' : 'bg-white/70 hover:bg-[var(--gold)]'}`}
           />
         ))}
       </div>

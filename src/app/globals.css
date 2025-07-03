@@ -3,6 +3,11 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --gold: #D4AF37;
+  --gold-dark: #B8860B;
+  --gold-gradient: linear-gradient(90deg, #D4AF37 0%, #B8860B 100%);
+  --golden-orange: #FF8C00;
+  --golden-orange-light: #FFA500;
 }
 
 @theme inline {

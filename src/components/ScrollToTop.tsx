@@ -20,7 +20,7 @@ const ScrollToTop = () => {
     <button
       aria-label="Scroll to top"
       onClick={handleClick}
-      className={`fixed bottom-6 right-6 z-50 p-3 rounded-full bg-orange-500 text-white shadow-lg transition-all duration-300 hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-400
+      className={`fixed bottom-6 right-6 z-50 p-3 rounded-full bg-[var(--golden-orange)] text-white shadow-lg transition-all duration-300 hover:bg-[var(--gold)] focus:outline-none focus:ring-2 focus:ring-[var(--gold)]
         ${visible ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
       tabIndex={visible ? 0 : -1}
     >

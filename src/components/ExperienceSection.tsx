@@ -153,7 +153,7 @@ const ExperienceSection = () => {
                     window.location.hash = "#contact";
                   }
                 }}
-                className="mt-auto mx-auto block px-6 py-2 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-full shadow-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-orange-300 text-center"
+                className="mt-auto mx-auto block px-6 py-2 bg-[var(--golden-orange)] hover:bg-[var(--gold)] text-white font-bold rounded-full shadow-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[var(--gold)] text-center"
                 type="button"
               >
                 Book Now

@@ -64,4 +64,4 @@ next-env.d.ts
 *.zip
 
 # Images
-public/images/*
+# public/images/*
