@@ -24,9 +24,21 @@ const ContactUs = () => {
     if (!form.message.trim()) newErrors.message = "Message is required";
     setErrors(newErrors);
     if (Object.keys(newErrors).length === 0) {
-      setSubmitted(true);
-      setForm({ name: "", email: "", subject: "", message: "", package: "" });
-      setTimeout(() => setSubmitted(false), 4000);
+      // Send form data to API
+      fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      })
+        .then(async (res) => {
+          if (!res.ok) throw new Error((await res.json()).error || "Failed to send");
+          setSubmitted(true);
+          setForm({ name: "", email: "", subject: "", message: "", package: "" });
+          setTimeout(() => setSubmitted(false), 4000);
+        })
+        .catch((err) => {
+          setErrors({ form: err.message || "Failed to send message" });
+        });
     }
   }
 
@@ -95,6 +107,9 @@ const ContactUs = () => {
               />
               {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message}</p>}
             </div>
+            {errors.form && (
+              <p className="text-red-500 text-xs mt-2 text-center">{errors.form}</p>
+            )}
             <button
               type="submit"
               className="w-full md:w-auto px-8 py-3 bg-gradient-to-r from-[var(--gold)] to-[var(--golden-orange)] text-white rounded-xl hover:from-[var(--gold-dark)] hover:to-[var(--golden-orange-light)] font-bold text-lg shadow-lg transition-all duration-200 focus:ring-2 focus:ring-[var(--gold)] focus:outline-none"
